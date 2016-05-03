@@ -1,5 +1,5 @@
 ### 基于javascript的简易汇编器  
-[传送门](tx.zhelishi.cn/assembler)
+[传送门](http://tx.zhelishi.cn/assembler)
 
 #### 基于MIPS指令集
 * R-type：ADD,SUB
