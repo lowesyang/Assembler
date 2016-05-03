@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汇编器</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="container">
+    <h1>汇编指令</h1>
+    <textarea id="input">
+ADD $t0,$a0,$zero
+ADD $t0,$t0,$a0
+SUB $t1,$t0,$a0
+SW $t1,16($t2)
+LW $t2,16($t2)
+    </textarea>
+    <form>
+        <p>命令(回车键执行)</p>
+        <input type="text" id="order" placeholder="R/D/U/A/T">
+        <button type="submit" id="submitBtn"></button>
+        <ul>
+            <li>D-数据方式看内存</li>
+            <li>U-指令方式看内存</li>
+            <li>A-写汇编指令到内存中</li>
+            <li>T-单步执行内存中的指令</li>
+        </ul>
+    </form>
+    <table width="300" height="300">
+        <caption>程序运行中自动监视所有寄存器</caption>
+        <tr>
+            <td>$zero</td>
+            <td>$at</td>
+            <td>$v0</td>
+            <td>$v1</td>
+            <td>$a0</td>
+            <td>$a1</td>
+        </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+        </tr>
+        <tr>
+            <td>$a2</td>
+            <td>$a3</td>
+            <td>$t0</td>
+            <td>$t1</td>
+            <td>$t2</td>
+            <td>$t3</td>
+        </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+        </tr><tr>
+        <td>$t4</td>
+        <td>$t5</td>
+        <td>$t6</td>
+        <td>$t7</td>
+        <td>$s0</td>
+        <td>$s1</td>
+    </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+        </tr><tr>
+        <td>$s2</td>
+        <td>$s3</td>
+        <td>$s4</td>
+        <td>$s5</td>
+        <td>$s6</td>
+        <td>$s7</td>
+    </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+        </tr><tr>
+        <td>$t8</td>
+        <td>$t9</td>
+        <td>$k0</td>
+        <td>$k1</td>
+        <td>$gp</td>
+        <td>$sp</td>
+    </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+        </tr><tr>
+        <td>$fp</td>
+        <td>$ra</td>
+        <td>$pc</td>
+        <td>$hi</td>
+        <td>$lo</td>
+    </tr>
+        <tr>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><input type="text" class="register" value="0"/></td>
+            <td><button type="button" class="submitReg">保存</button></td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" class="compile">编译</button>
+    <button type="button" class="run">执行</button>
+    <button id="clearBtn">重置</button>
+    <div class="subCon">
+        <div class="result">
+            <p>机器码</p>
+            <div class="mcCode"></div>
+        </div>
+        <div class="pointer"></div>
+        <div class="result">
+            <p>反汇编指令</p>
+            <div class="deComp"></div>
+        </div>
+        <div class="orderRes"></div>
+
+    </div>
+</div>
+<script src="assembler.js"></script>
+<script src="order.js"></script>
+</body>
+</html>
