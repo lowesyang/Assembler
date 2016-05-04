@@ -1,6 +1,7 @@
 var orderText=document.getElementById("order");
 var orderRes=document.getElementsByClassName("orderRes")[0];
 var submitBtn=document.getElementById("submitBtn");
+var deComTop=deCompRes.offsetTop;
 
 submitBtn.addEventListener("click",function(e){
     e.preventDefault();
@@ -52,7 +53,7 @@ var order={
         }
         if(!ASSEM.begin){
             pointer.style.display="block";
-            pointer.style.top=525+"px";
+            pointer.style.top=deComTop+4+"px";
             return ASSEM.begin=1;
         }
         var IR,op,rs,rt,rd,fun,Iimmi,Jimmi;
@@ -99,7 +100,7 @@ var order={
                 break;
         }
         RAM.PC+=4;
-        pointer.style.top=524+19*RAM.PC/4+"px";
+        pointer.style.top=deComTop+4+20*RAM.PC/4+"px";
         if(RAM.PC>=RAM.maxPC){
             pointer.style.display="none";
             return alert("Run completed!");
