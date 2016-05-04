@@ -145,6 +145,7 @@ var ASSEM={
 
     //--------编译--------
     compiler:function(){
+        ASSEM.Run();
         REGIST.watchReg();
         REGIST.saveDefault();
         mcCodeRes.innerHTML="";
@@ -187,7 +188,6 @@ var ASSEM={
     //--------执行--------
     runPro:function(){
         var rflag=true;
-        ASSEM.Run();
         ASSEM.compiler();
         while(RAM.PC < RAM.maxPC && rflag){
             var IR,op,rs,rt,rd,fun,Iimmi,Jimmi;
@@ -227,7 +227,7 @@ var ASSEM={
                     }
                     break;
                 case 2://J
-                    RAM.PC=(RAM.PC&0xF0000000 | Jimmi)-4;
+                    RAM.PC=(RAM.PC & 0xF0000000 | Jimmi)-4;
                     break;
                 default:
                     console.error("Instruction Error!");
@@ -319,7 +319,4 @@ clearBtn.addEventListener("click",function(){
     }
     clearInterval(REGIST.isWatch);
     REGIST.isWatch=0;
-    ASSEM.Run();
 });
-
-ASSEM.Run();
