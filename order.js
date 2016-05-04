@@ -82,10 +82,10 @@ var order={
                     (RAM.Memory[rs+Iimmi+2]<<16)|(RAM.Memory[rs+Iimmi+3]<<24);
                 break;
             case 43://SW
-                RAM.Memory[rt+Iimmi+0]=(REGIST.value[rt])&0xFF;
-                RAM.Memory[rt+Iimmi+1]=(REGIST.value[rt]>>8)&0xFF;
-                RAM.Memory[rt+Iimmi+2]=(REGIST.value[rt]>>16)&0xFF;
-                RAM.Memory[rt+Iimmi+3]=(REGIST.value[rt]>>24)&0xFF;
+                RAM.Memory[rs+Iimmi+0]=(REGIST.value[rt])&0xFF;
+                RAM.Memory[rs+Iimmi+1]=(REGIST.value[rt]>>8)&0xFF;
+                RAM.Memory[rs+Iimmi+2]=(REGIST.value[rt]>>16)&0xFF;
+                RAM.Memory[rs+Iimmi+3]=(REGIST.value[rt]>>24)&0xFF;
                 break;
             case 4://BEQ
                 if(REGIST.value[rs]==REGIST.value[rt]){
